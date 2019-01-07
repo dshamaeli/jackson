@@ -1,7 +1,5 @@
 package uk.co.crowderconsult;
 
-import uk.co.crowderconsult.MeasurementDataType;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.Objects;
 public class Meter {
     private Integer id;
     private String name;
-    private Integer meteTypeId;
+    private MeterType meteTypeId;
     private Date installDate;
     private Boolean active;
     private MeasurementDataType measurementDataType;
@@ -40,11 +38,11 @@ public class Meter {
         this.name = name;
     }
 
-    public Integer getMeteTypeId() {
+    public MeterType getMeteTypeId() {
         return meteTypeId;
     }
 
-    public void setMeteTypeId(Integer meteTypeId) {
+    public void setMeteTypeId(MeterType meteTypeId) {
         this.meteTypeId = meteTypeId;
     }
 
@@ -82,10 +80,11 @@ public class Meter {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Meter meter = (Meter) o;
-        return id.equals(meter.id) &&
+        return Objects.equals(id, meter.id) &&
                 Objects.equals(name, meter.name) &&
                 Objects.equals(meteTypeId, meter.meteTypeId) &&
                 Objects.equals(installDate, meter.installDate) &&
