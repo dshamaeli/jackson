@@ -17,6 +17,13 @@ public class MeterType {
         this.meterTypeName = meterTypeName;
     }
 
+    public MeterType(Integer meterTypeId, String meterTypeName, Double maxSize, Double maxFlow, Double maxPressure) {
+        this(meterTypeId, meterTypeName);
+        this.maxSize = maxSize;
+        this.maxFlow = maxFlow;
+        this.maxPressure = maxPressure;
+    }
+
     public Integer getMeterTypeId() {
         return meterTypeId;
     }
